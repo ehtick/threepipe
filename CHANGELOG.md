@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 - Add `AssetImporter.autoSetName` (default `true`), to control whether the asset name should be set automatically from the file name when importing from files/blobs.
 - Add `TransformControlsPlugin.selectionFilterTest` to filter/swap objects that can be selected for transform controls.
 - Set `allowOverride` `false` for materials in `TransformControls`
+- `Object3DGeneratorPlugin` - separate `object-empty` and `object-group` to generate `Object3D` and `Group` respectively.
 
 ## [0.4.3] - 2025-12-01
 

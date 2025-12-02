@@ -4,7 +4,7 @@ import {
     DirectionalLight2,
     Group2,
     HemisphereLight2,
-    IObject3D,
+    IObject3D, Object3D2,
     OrthographicCamera2,
     PerspectiveCamera2,
     PointLight2,
@@ -42,6 +42,15 @@ export class Object3DGeneratorPlugin extends AViewerPluginSync {
 
     generators: Record<string, (params?: any)=>IObject3D> = {
         ['object-empty']: (params: {
+            position?: Vector3,
+            name?: string,
+        } = {})=>{
+            const obj = new Object3D2()
+            params.position ? obj.position.copy(params.position) : obj.position.set(0, 0, 0)
+            obj.name = params.name ?? 'New Object'
+            return obj
+        },
+        ['object-group']: (params: {
             position?: Vector3,
             name?: string,
         } = {})=>{
