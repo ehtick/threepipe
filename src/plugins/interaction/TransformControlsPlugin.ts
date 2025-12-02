@@ -65,6 +65,8 @@ export class TransformControlsPlugin extends AViewerPluginSync {
     }
     undoManager?: JSUndoManager
 
+    selectionFilterTest: ((obj: IObject3D)=>IObject3D|null)|undefined = undefined
+
     onAdded(viewer: ThreeViewer) {
         super.onAdded(viewer)
         this.setDirty()
@@ -94,7 +96,12 @@ export class TransformControlsPlugin extends AViewerPluginSync {
                 return
             }
             if (event.object) {
-                const obj = event.intersects?.selectedHandle ?? event.intersects?.selectedObject ?? event.object
+                let obj: IObject3D|null = event.intersects?.selectedHandle ?? event.intersects?.selectedObject ?? event.object
+                if (this.selectionFilterTest) obj = this.selectionFilterTest(obj)
+                if (!obj || !obj.isObject3D) {
+                    this.transformControls.detach()
+                    return
+                }
                 this.transformControls.attach(obj)
             } else {
                 this.transformControls.detach()

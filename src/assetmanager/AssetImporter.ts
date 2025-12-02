@@ -509,6 +509,11 @@ export class AssetImporter extends EventDispatcher<IAssetImporterEventMap> imple
 
     // region processRaw
 
+    /**
+     * Automatically set name of the asset if not set already, based on the file name.
+     */
+    autoSetName = true
+
     public async processRaw<T extends (ImportResult|undefined) = ImportResult>(res: T|T[], options: ProcessRawOptions, path?: string): Promise<T[]> {
         if (!res) return []
 
@@ -565,7 +570,7 @@ export class AssetImporter extends EventDispatcher<IAssetImporterEventMap> imple
             res._childrenCopy = [...res.children]
         }
 
-        if (res.name === '') res.name = (rootBlob?.filePath || rootBlob?.name || rootPath || '')
+        if (this.autoSetName && res.name === '') res.name = (rootBlob?.filePath || rootBlob?.name || rootPath || '')
             .replace(/^\/|\/$/, '')
             .split('/').pop()!
 

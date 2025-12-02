@@ -34,7 +34,7 @@ const _unit = {
 };
 
 const _changeEvent = { type: 'change' };
-const _mouseDownEvent = { type: 'mouseDown' };
+const _mouseDownEvent = { type: 'mouseDown', mode: null };
 const _mouseUpEvent = { type: 'mouseUp', mode: null };
 const _objectChangeEvent = { type: 'objectChange' };
 
@@ -800,6 +800,7 @@ class TransformControlsGizmo extends Object3D {
         // shared materials
 
         const gizmoMaterial = new TransformControls.ObjectConstructors.MeshBasicMaterial( {
+            allowOverride: false,
             depthTest: false,
             depthWrite: false,
             fog: false,
@@ -808,6 +809,7 @@ class TransformControlsGizmo extends Object3D {
         } );
 
         const gizmoLineMaterial = new TransformControls.ObjectConstructors.LineBasicMaterial( {
+            allowOverride: false,
             depthTest: false,
             depthWrite: false,
             fog: false,
@@ -1525,7 +1527,7 @@ class TransformControlsPlane extends Mesh {
 
         super(
             new PlaneGeometry( 100000, 100000, 2, 2 ),
-            new TransformControls.ObjectConstructors.MeshBasicMaterial( { visible: false, wireframe: true, side: DoubleSide, transparent: true, opacity: 0.1, toneMapped: false } )
+            new TransformControls.ObjectConstructors.MeshBasicMaterial( { visible: false, wireframe: true, side: DoubleSide, transparent: true, opacity: 0.1, toneMapped: false, allowOverride: false } )
         );
 
         this.isTransformControlsPlane = true;
