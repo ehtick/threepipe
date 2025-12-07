@@ -59,7 +59,7 @@ Get started with pre-ready templates with model viewer and plugins that run loca
 <input type="image" src="https://developer.stackblitz.com/img/open_in_stackblitz_small.svg" width="140" height="20" style="margin-bottom: -0.3rem; cursor: unset;">
 </a>
 
-- **nextjs + plugins** <a href="https://stackblitz.com/https://stackblitz.com/edit/threepipe-nextjs-starter?file=app%2Fcomponents%2FThreeViewerComponent.tsx,app%2Fpage.tsx&title=Threepipe%20Next.js%20Starter">
+- **nextjs + plugins** <a href="https://stackblitz.com/edit/threepipe-nextjs-starter?file=app%2Fcomponents%2FThreeViewerComponent.tsx,app%2Fpage.tsx&title=Threepipe%20Next.js%20Starter">
 <input type="image" src="https://developer.stackblitz.com/img/open_in_stackblitz_small.svg" width="140" height="20" style="margin-bottom: -0.3rem; cursor: unset;">
 </a>
 
